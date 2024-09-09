@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TugasController;
+use App\Models\Tugas;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $jumlah = Tugas::count();
+    $jumlahpria = Tugas::where('jeniskelamin','Pria')->count();
+    $jumlahWanita = Tugas::where('jeniskelamin','Wanita')->count();
+    return view('welcome',compact('jumlah', 'jumlahpria', 'jumlahWanita'));
 });
 // View ke menu utama
 Route::get('/table', [TugasController::class, 'table'])->name('table');
