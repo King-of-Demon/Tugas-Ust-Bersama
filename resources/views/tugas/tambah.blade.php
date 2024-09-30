@@ -11,8 +11,9 @@
 
 @section('content')
     <body>
-        <h1 class="text-center mt-4">INSERT DATA</h1>
-        <div class="container">
+        <br>
+        <h1 class="text-center mt-5 mt-5">INSERT DATA</h1>
+        <div class="container mb-5">
             <div class="row justify-content-center">
             <div class="col-5">
                 <div class="card">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard 2</title>
+  <title>My Project</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -177,7 +177,7 @@
           <img src="{{ asset('AdminLTE-3.2.0/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -236,15 +236,23 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/table" class="nav-link">
+              <a href="/table" class="nav-link">
                 <i class="nav-icon fa-solid fa-table-list"></i>
-              <p>
-                Data Pegawai
-                {{-- <span class="right badge badge-danger">New</span> --}}
-              </p>
+                <p>
+                    Data Pegawai
+                    {{-- <span class="right badge badge-danger">New</span> --}}
+                </p>
             </a>
-          </li>
-          {{-- <li class="nav-item">
+        </li>
+        <li class="nav-item">
+          <a href="/logout" class="nav-link">
+            <i class="nav-icon fa-solid fa-right-from-bracket"></i>
+            <p>
+              Logout
+            </p>
+          </a>
+        </li>
+        {{-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>

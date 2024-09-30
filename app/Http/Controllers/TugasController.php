@@ -13,7 +13,7 @@ class TugasController extends Controller
 {
     public function table(Request $request){
         if ($request->has('search')) {
-            $data = Tugas::where('nama','LIKE','%' .$request->search.'%')->paginate(5);
+            $data = Tugas::where('nama','LIKE','%' .$request->search.'%')->paginate(7);
         }else{
             $data = Tugas::paginate(5);
         }
