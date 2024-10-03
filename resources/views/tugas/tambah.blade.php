@@ -23,6 +23,13 @@
                             <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama Lengkap Anda</label>
                             <input type="text" name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            @error('nama')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            </div>
+                            <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Tanggal Lahir Anda</label>
+                            <input type="date" name="tanggal_lahir" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
@@ -33,8 +40,21 @@
                                 </select>
                             </div>
                             <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Your City</label>
+                                <select class="form-select" name="id_pulau" aria-label="Default select example">
+                                    @foreach ($datakota as $data)
+                                        <optgroup label="{{ $data->pulau }}">
+                                            <option value="{{ $data->id }}">{{ $data->namakota }}</option>
+                                        </optgroup>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">No Telephone</label>
                             <input type="number" name="no" class="form-control" id="exampleInputPassword1">
+                            @error('no')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             </div>
                             <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Masukkan Foto Anda</label>

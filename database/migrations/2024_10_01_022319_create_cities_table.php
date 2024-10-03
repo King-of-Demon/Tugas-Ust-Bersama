@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tugas', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->enum('jeniskelamin',['Pria','Wanita']);
-            $table->bigInteger('no');
-            $table->string('foto');
-            $table->integer('id_pulau');
-            $table->date('tanggal_lahir');
+            $table->enum('pulau',['Jawa', 'Sumatra', 'Kalimantan', 'Sulawesi', 'Papua']);
+            $table->string('namaprovinsi');
+            $table->string('namakota');
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tugas');
+        Schema::dropIfExists('cities');
     }
 };

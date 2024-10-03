@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\TugasController;
 use App\Models\Tugas;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TugasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ Route::get('/', function () {
     $jumlah = Tugas::count();
     $jumlahpria = Tugas::where('jeniskelamin','Pria')->count();
     $jumlahWanita = Tugas::where('jeniskelamin','Wanita')->count();
-    $new = Tugas::where('created_at', '>=', now()->subMonth())->count();
+    $new = Tugas::where('created_at', '=', now()->subMonth())->count();
     return view('welcome',compact('jumlah', 'jumlahpria', 'jumlahWanita', 'new'));
 })->middleware('auth');
 // View ke menu utama
@@ -48,3 +49,9 @@ Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('registeruser');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Part city
+Route::get('/city', [CityController::class, 'index'])->name('city')->middleware('auth');
+
+Route::get('/tambahkota', [CityController::class, 'create'])->name('tambahkota')->middleware('auth');
+Route::post('/insertkota', [CityController::class, 'store'])->name('insertkota')->middleware('auth');

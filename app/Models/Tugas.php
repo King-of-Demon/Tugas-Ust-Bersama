@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\City;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Tugas extends Model
 {
@@ -11,4 +12,8 @@ class Tugas extends Model
     protected $table = 'tugas';
     protected $guarded = [];
     protected $dates = ['created_at'];
+
+    public function city(){
+        return $this->belongsTo(City::class, 'id_pulau', 'id');
+    }
 }

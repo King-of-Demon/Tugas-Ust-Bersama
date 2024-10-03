@@ -244,6 +244,15 @@
                 </p>
             </a>
         </li>
+          <li class="nav-item">
+              <a href="/city" class="nav-link">
+                <i class="nav-icon fa-solid fa-house-chimney"></i>
+                <p>
+                    Data Residence
+                    {{-- <span class="right badge badge-danger">New</span> --}}
+                </p>
+            </a>
+        </li>
         <li class="nav-item">
           <a href="/logout" class="nav-link">
             <i class="nav-icon fa-solid fa-right-from-bracket"></i>

@@ -27,7 +27,15 @@
       <form action="/loginuser" method="post">
         @csrf
         <div class="input-group mb-3">
-          <input type="email" class="form-control" name="email" placeholder="Email">
+          <input type="email" class="form-control" name="email" placeholder="Email" autofocus required>
+          {{-- @error('email')
+              <div class="invalid-feedback">
+                The email must be a valid email address.
+              </div>
+          @enderror --}}
+          {{-- @error('email')
+              is-invalid
+          @enderror --}}
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -35,7 +43,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="password" placeholder="Password">
+          <input type="password" class="form-control" name="password" placeholder="Password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -75,5 +83,12 @@
 <script src="{{ asset('AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('AdminLTE-3.2.0/dist/js/adminlte.min.js') }}"></script>
+{{-- sweetalert --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
+@if ($massage = Session::get('gagal'))
+    <script>
+        Swal.fire("{{ $massage }}");
+    </script>
+@endif
 </html>

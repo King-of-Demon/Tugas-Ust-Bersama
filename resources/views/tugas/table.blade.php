@@ -35,6 +35,7 @@
                                 <div class="row align-items-center mb-4 mt-5">
                                     <di class="col-auto">
                                         <a href="/tambah" type="button" class="btn btn-primary"><i class="fa-solid fa-address-card"></i> Tambah+</a>
+                                        {{-- {{ Session::get('halam_url') }} --}}
                                     </di>
                                     ||
                                     <div class="col-auto ms-3">
@@ -93,7 +94,9 @@
                                                 <th scope="col"><i class="fa-solid fa-image"></i> Foto</th>
                                                 <th scope="col"><i class="fa-solid fa-venus-mars"></i> Jenis Kelamin</th>
                                                 <th scope="col"><i class="fa-solid fa-phone"></i> No.Telephone</th>
-                                                <th scope="col"><i class="fa-solid fa-calendar-plus"></i> Tanggal Dibuat</th>
+                                                <th scope="col"><i class="fa-solid fa-cake-candles"></i> Tanggal Lahir</th>
+                                                <th scope="col"><i class="fa-solid fa-house-chimney"></i> Tempat Tinggal</th>
+                                                {{-- <th scope="col"><i class="fa-solid fa-calendar-plus"></i> Tanggal Dibuat</th> --}}
                                                 <th scope="col"> </th>
                                             </tr>
                                         </thead>
@@ -105,7 +108,8 @@
                                                     <td><img src="{{ asset('Images/foto/'.$r->foto) }}" alt="" width="40px"></td>
                                                     <td>{{ $r->jeniskelamin }}</td>
                                                     <td>{{ $r->no }}</td>
-                                                    <td>{{ $r->created_at->format('Y-m-d') }}</td>
+                                                    <td>{{ $r->tanggal_lahir }}</td>
+                                                    <td>{{ $r->city->namakota }}</td>
                                                     <td>
                                                         <a href="/tampil/{{ $r->id }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                                                         <a href="#" class="btn btn-danger delete" data-id="{{ $r->id }}" data-nama="{{ $r->nama }}"><i class="fa-solid fa-trash"></i> Hapus</a>
@@ -164,3 +168,5 @@
             @endif
         </script>
 @endpush
+
+{{-- <td>{{ $r->created_at->format('Y-m-d') }}</td> --}}

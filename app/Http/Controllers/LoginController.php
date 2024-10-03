@@ -13,10 +13,19 @@ class LoginController extends Controller
         return view('login');
     }
     public function loginuser(Request $request){
+        // $login = $request->validate([
+        //     'email'=> 'required|email:dns',
+        //     'password'=> 'required'
+        // ]);
+        // if (Auth::attempt($login)) {
+        //     $request->session()->regenerate();
+        //     return redirect()->intended('/');
+        // }
+        // return back()->with('gagal', 'Email atau Password Salah!');
         if (Auth::attempt($request->only('email', 'password'))) {
             return redirect('/');
         }
-        return redirect('/login');
+        return redirect('/login')->with('gagal', 'Email atau Password Salah!');
     }
     public function register(){
         return view('register');
