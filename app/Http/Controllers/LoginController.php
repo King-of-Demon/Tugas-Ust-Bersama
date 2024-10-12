@@ -25,6 +25,7 @@ class LoginController extends Controller
         if (Auth::attempt($request->only('email', 'password'))) {
             return redirect('/');
         }
+
         return redirect('/login')->with('gagal', 'Email atau Password Salah!');
     }
     public function register(){
